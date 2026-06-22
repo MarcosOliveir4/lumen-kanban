@@ -1,6 +1,6 @@
-import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { App } from './app/app';
+import { initFederation } from '@angular-architects/native-federation';
 
-bootstrapApplication(App, appConfig)
+initFederation({ 'lumen-kanban': './remoteEntry.json' })
+  .catch((err) => console.error(err))
+  .then(() => import('./bootstrap'))
   .catch((err) => console.error(err));
